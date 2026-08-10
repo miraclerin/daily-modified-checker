@@ -15,8 +15,9 @@
 
 from datetime import datetime
 from time import time
-from colorama import Fore, Style
+from colorama import Fore, Style, just_fix_windows_console
 from json import JSONDecodeError
+from sys import platform
 
 from DailyEditedChecker import DailyEditedChecker
 
@@ -150,6 +151,9 @@ class Visualizer():
 
 
 if __name__ == '__main__':
+    if platform == "win32":
+        just_fix_windows_console()
+        
     print("Daily Edited Checker Visualizer  Copyright (C) 2026  miraclerin")
     try:
         visualizer = Visualizer()
