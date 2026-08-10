@@ -41,6 +41,11 @@ class DailyEditedChecker():
         self.settings = json.loads(f.read())
         f.close()
 
+    def write_settings(self):
+        f = open("settings.json", "w")
+        f.write(json.dumps(self.settings))
+        f.close()
+
     def load_database(self):
         f = open(self.settings["database.path"])
         self.database = json.loads(f.read())
