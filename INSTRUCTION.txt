@@ -7,8 +7,8 @@ NOTE: This program tracks only changes to the date modified! (The wordplay was l
 3. Write to_check.txt with the paths to the files whose modification dates you want to track (don't forget to erase the example paths);
 
 4. Run AutoChecker.exe,
-   WARNING: running two instances of AutoChecker.py will lead to unpredictable process behavior;
+   WARNING: running two instances of AutoChecker.exe will lead to unpredictable process behavior;
 
-5. Run DailyEditedChecker.exe to view the change graph.
+5. Run Visualizer.exe to view the change graph.
    TIP: maximize the window for better visibility.
 
