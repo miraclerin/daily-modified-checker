@@ -1,0 +1,5 @@
+{
+	"database.path": "database.json",
+	"to_check.path": "to_check.txt",
+	"process.update.time": 600
+}

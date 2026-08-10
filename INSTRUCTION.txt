@@ -1,0 +1,14 @@
+NOTE: This program tracks only changes to the date modified! (The wordplay was lost in translation)
+
+1. Create a shortcut to AutoChecker.exe;
+
+2. Place this shortcut in the Startup folder (WIN + R -> shell:startup);
+
+3. Write to_check.txt with the paths to the files whose modification dates you want to track (don't forget to erase the example paths);
+
+4. Run AutoChecker.exe,
+   WARNING: running two instances of AutoChecker.py will lead to unpredictable process behavior;
+
+5. Run DailyEditedChecker.exe to view the change graph.
+   TIP: maximize the window for better visibility.
+
