@@ -24,5 +24,4 @@ checker = DailyModifiedChecker()
 
 while True:
     checker.run()
-    print(f"[DEBUG] Checked! ({time()})")
     sleep(checker.settings["process.update.time"])
