@@ -45,7 +45,7 @@ class DailyModifiedChecker():
 
     def write_settings(self):
         f = open("settings.json", "w")
-        f.write(json.dumps(self.settings))
+        f.write(json.dumps(self.settings, indent=4))
         f.close()
 
     def load_database(self):
@@ -55,7 +55,7 @@ class DailyModifiedChecker():
 
     def write_database(self):
         f = open(self.settings["database.path"], "w")
-        f.write(json.dumps(self.database))
+        f.write(json.dumps(self.database, indent=4))
         f.close()
 
     def get_file_date_when_modified(self, file_path):
