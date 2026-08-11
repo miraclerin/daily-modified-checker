@@ -16,10 +16,10 @@
 
 from time import sleep, time
 
-from DailyEditedChecker import DailyEditedChecker
+from DailyModifiedChecker import DailyModifiedChecker
 
 
-checker = DailyEditedChecker()
+checker = DailyModifiedChecker()
 
 
 while True:

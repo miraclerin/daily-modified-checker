@@ -1,4 +1,4 @@
-# This file is part of the daily-edited-checker distribution (https://github.com/miraclerin/daily-edited-checker).
+# This file is part of the daily-modified-checker distribution (https://github.com/miraclerin/daily-modified-checker).
 # Copyright (c) 2026 miraclerin.
 #
 # This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@ from colorama import Fore, Style, just_fix_windows_console
 from json import JSONDecodeError, loads, dumps
 from sys import platform
 
-from DailyEditedChecker import DailyEditedChecker
+from DailyModifiedChecker import DailyModifiedChecker
 
 
 class Visualizer():
@@ -42,7 +42,7 @@ class Visualizer():
         self.locale_other = {"prompt": "Type the year for which you want to view statistics: ",
                              "modified": "Modified", "modified.today": "Modified today"}
 
-        self.checker = DailyEditedChecker()
+        self.checker = DailyModifiedChecker()
 
     def run(self):
         self.load_locale()
@@ -184,7 +184,7 @@ if __name__ == '__main__':
     if platform == "win32":
         just_fix_windows_console()
 
-    print("Daily Edited Checker Visualizer  Copyright (C) 2026  miraclerin")
+    print("Daily Modified Checker Visualizer  Copyright (C) 2026  miraclerin")
     try:
         visualizer = Visualizer()
         visualizer.run()
