@@ -42,9 +42,11 @@ class Visualizer():
         self.locale_other = {"prompt": "Type the year for which you want to view statistics: ",
                              "modified": "Modified", "modified.today": "Modified today"}
 
-        self.checker = DailyModifiedChecker()
+        self.checker: DailyModifiedChecker
 
     def run(self):
+        self.checker = DailyModifiedChecker()
+        
         self.load_locale()
 
         f = open(self.checker.settings["to_check.path"])
