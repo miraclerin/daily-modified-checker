@@ -92,24 +92,34 @@ class Visualizer():
         while not is_graph_done:
             for day in range(1, 8):
                 try:
-                    date = datetime.fromisocalendar(year, week, day).strftime("%Y-%m-%d")
+                    f = datetime.fromisocalendar(year, week, day)
+                    date = (f.strftime("%Y"),
+                            f.strftime("%m"),
+                            f.strftime("%d"))
                 except ValueError:
                     if week == 54:
                             is_graph_done = True
                             break
                     elif datetime.fromisocalendar(year, week - 1, 7).strftime("%d") != 31:
-                        date = datetime.fromisocalendar(year + 1, 1, day).strftime("%Y-%m-%d")
+                        f = datetime.fromisocalendar(year + 1, 1, day)
+                        date = (f.strftime("%Y"),
+                                f.strftime("%m"),
+                                f.strftime("%d"))
                     else:
                         is_graph_done = True
                         break
+
                 if day == 1:
                     graph.append([])
+                try:
+                    if str(year) != date[0]:
+                        graph[week - 1].append("   ")
+                    elif date[2] in data[date[0]][date[1]]:
+                        graph[week - 1].append("[#]")
+                    else:
+                        graph[week - 1].append("[ ]")
 
-                if str(year) != date[:date.find("-")]:
-                    graph[week - 1].append("   ")
-                elif date in data:
-                    graph[week - 1].append("[#]")
-                else:
+                except KeyError:
                     graph[week - 1].append("[ ]")
 
             week += 1
