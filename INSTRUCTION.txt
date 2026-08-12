@@ -9,6 +9,6 @@ NOTE: This program tracks only changes to the date modified! (The wordplay was l
 4. Run AutoChecker.exe,
    WARNING: running two instances of AutoChecker.exe will lead to unpredictable process behavior;
 
-5. Run Visualizer.exe to view the change graph.
+5. Run Visualizer.exe to view the change graph (you can change the locale in settings.json after the first launch).
    TIP: maximize the window for better visibility.
 
