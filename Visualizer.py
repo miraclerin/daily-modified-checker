@@ -204,3 +204,6 @@ if __name__ == '__main__':
     except FileNotFoundError:
         print(f"\n{Fore.RED}[ERROR] {visualizer.locale_errors["file.found"]}{Style.RESET_ALL}\n")
         input()
+    except TypeError:
+        print(f"\n{Fore.RED}[ERROR] {visualizer.locale_errors["file.read"]}{Style.RESET_ALL}\n")
+        input()
