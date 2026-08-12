@@ -37,23 +37,23 @@ class DailyModifiedChecker():
         self.write_database()
 
     def load_settings(self, path):
-        f = open(path)
+        f = open(path, encoding="utf-8")
         self.settings = json.loads(f.read())
         f.close()
 
     def write_settings(self):
-        f = open("settings.json", "w")
-        f.write(json.dumps(self.settings, indent=4))
+        f = open("settings.json", "w", encoding="utf-8")
+        f.write(json.dumps(self.settings, indent=4, ensure_ascii=False))
         f.close()
 
     def load_database(self):
-        f = open(self.settings["database.path"])
+        f = open(self.settings["database.path"], encoding="utf-8")
         self.database = json.loads(f.read())
         f.close()
 
     def write_database(self):
-        f = open(self.settings["database.path"], "w")
-        f.write(json.dumps(self.database, indent=4))
+        f = open(self.settings["database.path"], "w", encoding="utf-8")
+        f.write(json.dumps(self.database, indent=4, ensure_ascii=False))
         f.close()
 
     def get_file_date_when_modified(self, file_path):
