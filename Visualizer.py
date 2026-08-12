@@ -175,7 +175,7 @@ class Visualizer():
             f.write(dumps(to_write, indent=4))
 
         except KeyError:
-            self.checker.settings["locale_path"] = "visualizer_locale_en_US.json"
+            self.checker.settings["locale_path"] = "locale_visualizer\\en_US.json"
             self.checker.write_settings()
             self.load_locale()
 
