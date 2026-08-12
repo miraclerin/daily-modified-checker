@@ -1,7 +1,7 @@
 # Daily Modified Checker
 A simple application that automatically records file dates modified in a database and displays them beautifully.
 
-In other words, the program monitors for the file changes every 10 minutes, and if changes are detected, it marks the day of the change in the database.
+In other words, the program monitors for the file changes every 10 minutes, and if changes are detected, it marks the day of the change in the database (also records time since 1.2.0).
 
 ## Contribution
 The application was created primarily for myself, and uploaded to GitHub for easy distribution to my friends. But feel free to suggest improvements and fork the repository.
