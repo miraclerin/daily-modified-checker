@@ -37,7 +37,7 @@ class Visualizer():
 
         self.locale_errors = {"file.read": "Some file cannot be read.", "file.found": "Some file cannot be found.",
                               "to_check.incorrect": "to_check.txt is empty or incorrectly written. Refer to INSTRUCTION.txt to fix it.",
-                              "year.range": "An year must be in range 1000...9998.", "year.notint": "Don't seem to be an year.{"}
+                              "year.range": "An year must be in range 1000...9998.", "year.notint": "Don't seem to be an year."}
 
         self.locale_other = {"prompt": "Type the year for which you want to view statistics: ",
                              "modified": "Modified", "modified.today": "Modified today"}
