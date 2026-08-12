@@ -114,11 +114,11 @@ class Visualizer():
 
             week += 1
 
-        graph = [[j[i] for j in graph] for i in range(7)]
-
         return graph
 
     def print_graph(self, year, graph):
+        graph = [[j[i] for j in graph] for i in range(7)]
+
         if graph[self.day_of_week - 1][self.week] == "[#]":
             graph[self.day_of_week - 1][self.week] = f"[{Fore.YELLOW}#{Style.RESET_ALL}]"
 
