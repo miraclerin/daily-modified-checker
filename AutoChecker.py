@@ -14,7 +14,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
-from time import sleep, time
+from time import sleep
 
 from DailyModifiedChecker import DailyModifiedChecker
 
