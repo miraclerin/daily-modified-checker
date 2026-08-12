@@ -15,4 +15,4 @@ The `settings.json` file allow you to change paths to `database.json`, to `to_ch
 The `to_check.txt` must contain the paths to the files which date modified you want to record in a database.
 
 ## License
-Distributed under the GPL GNU-3.0. See [LICENSE](https://github.com/miraclerin/daily-modified-checker/blob/main/LICENSE) for more information.
+Distributed under the GNU GPL-3.0. See [LICENSE](https://github.com/miraclerin/daily-modified-checker/blob/main/LICENSE) for more information.
