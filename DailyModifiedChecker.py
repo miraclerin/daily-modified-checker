@@ -57,14 +57,28 @@ class DailyModifiedChecker():
         f.close()
 
     def get_file_date_when_modified(self, file_path):
-        return datetime.fromtimestamp(os.path.getmtime(file_path)).strftime("%Y-%m-%d")
+        f = datetime.fromtimestamp(os.path.getmtime(file_path))
+        return (f.strftime("%Y"),
+                f.strftime("%m"),
+                f.strftime("%d"),
+                f.strftime("%H:%M:%S"))
 
     def write_date_in_database(self, checked_file, date):
+        # I think... it looks really bad
         if checked_file in self.database:
-            if date not in self.database[checked_file]:
-                self.database[checked_file].append(date)
+            if date[0] in self.database[checked_file]:
+                if date[1] in self.database[checked_file][date[0]]:
+                    if date[2] in self.database[checked_file][date[0]][date[1]]:
+                        if self.settings["time.record"] and date[3] not in self.database[checked_file][date[0]][date[1]][date[2]]:
+                            self.database[checked_file][date[0]][date[1]][date[2]].append(date[3])
+                    else:
+                        self.database[checked_file][date[0]][date[1]][date[2]] = [date[3]]
+                else:
+                    self.database[checked_file][date[0]][date[1]] = {date[2]: [date[3]]}
+            else:
+                self.database[checked_file][date[0]] = {date[1]: {date[2]: [date[3]]}}
         else:
-            self.database[checked_file] = [date]
+            self.database[checked_file] = {date[0]: {date[1]: {date[2]: [date[3]]}}}
 
     def get_paths_to_check(self):
         f = open(self.settings["to_check.path"], encoding="utf-8")
