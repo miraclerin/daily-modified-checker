@@ -29,9 +29,7 @@ class DailyModifiedChecker():
     def run(self):
         self.load_database()
 
-        f = open(self.settings["to_check.path"])
-        to_check = f.read().split("\n")
-        f.close()
+        to_check = self.get_paths_to_check()
 
         for i in to_check:
             self.write_date_in_database(i, self.get_file_date_when_modified(i))
@@ -67,6 +65,12 @@ class DailyModifiedChecker():
                 self.database[checked_file].append(date)
         else:
             self.database[checked_file] = [date]
+
+    def get_paths_to_check(self):
+        f = open(self.settings["to_check.path"], encoding="utf-8")
+        paths_to_check = f.read().split("\n")
+        f.close()
+        return paths_to_check
 
 
 if __name__ == '__main__':

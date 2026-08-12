@@ -49,9 +49,7 @@ class Visualizer():
         
         self.load_locale()
 
-        f = open(self.checker.settings["to_check.path"])
-        to_check = f.read().split("\n")
-        f.close()
+        to_check = self.checker.get_paths_to_check()
 
         if to_check[0] == "":
             print(f"\n{Fore.YELLOW}[WARNING] {self.locale_errors["to_check.incorrect"]}{Style.RESET_ALL}\n")
