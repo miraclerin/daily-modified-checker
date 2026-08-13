@@ -180,7 +180,7 @@ class Visualizer():
             f.close()
 
         except FileNotFoundError:
-            f = open(self.checker.settings["locale_path"], "w")
+            f = open(self.checker.settings["visualizer.locale.path"], "w")
             to_write = {"months": self.locale_months, "days": self.locale_days, "errors": self.locale_errors, "other": self.locale_other}
             f.write(dumps(to_write, indent=4))
 
