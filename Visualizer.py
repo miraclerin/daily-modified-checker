@@ -169,7 +169,7 @@ class Visualizer():
 
     def load_locale(self):
         try:
-            f = open(self.checker.settings["locale_path"], encoding="utf-8")
+            f = open(self.checker.settings["visualizer.locale.path"], encoding="utf-8")
             to_load = loads(f.read())
 
             self.locale_months = to_load["months"]
@@ -185,7 +185,7 @@ class Visualizer():
             f.write(dumps(to_write, indent=4))
 
         except KeyError:
-            self.checker.settings["locale_path"] = "locale_visualizer\\en_US.json"
+            self.checker.settings["visualizer.locale.path"] = "locale_visualizer\\en_US.json"
             self.checker.write_settings()
             self.load_locale()
 
