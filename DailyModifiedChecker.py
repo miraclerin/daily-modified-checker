@@ -21,10 +21,14 @@ from datetime import datetime
 
 class DailyModifiedChecker():
     def __init__(self):
-        self.load_settings("settings.json")
+        self.settings_path = "settings.json"
 
-        self.settings: dict
-        self.database: dict
+        self.settings: dict = {"database.path": "database.json",
+                               "to_check.path": "to_check.txt",
+                               "time.record": True}
+        self.database: dict = {}
+        
+        self.load_settings()
 
     def run(self):
         self.load_database()
@@ -36,20 +40,26 @@ class DailyModifiedChecker():
 
         self.write_database()
 
-    def load_settings(self, path):
-        f = open(path, encoding="utf-8")
-        self.settings = json.loads(f.read())
-        f.close()
+    def load_settings(self):
+        try:
+            f = open(self.settings_path, encoding="utf-8")
+            self.settings = json.loads(f.read())
+            f.close()
+        except FileNotFoundError:
+            self.write_settings()
 
     def write_settings(self):
-        f = open("settings.json", "w", encoding="utf-8")
+        f = open(self.settings_path, "w", encoding="utf-8")
         f.write(json.dumps(self.settings, indent=4, ensure_ascii=False))
         f.close()
 
     def load_database(self):
-        f = open(self.settings["database.path"], encoding="utf-8")
-        self.database = json.loads(f.read())
-        f.close()
+        try:
+            f = open(self.settings["database.path"], encoding="utf-8")
+            self.database = json.loads(f.read())
+            f.close()
+        except FileNotFoundError:
+            self.write_database()
 
     def write_database(self):
         f = open(self.settings["database.path"], "w", encoding="utf-8")
@@ -81,11 +91,16 @@ class DailyModifiedChecker():
             self.database[checked_file] = {date[0]: {date[1]: {date[2]: [date[3]]}}}
 
     def get_paths_to_check(self):
-        f = open(self.settings["to_check.path"], encoding="utf-8")
-        paths_to_check = f.read().split("\n")
-        f.close()
-        return paths_to_check
-
+        try:
+            f = open(self.settings["to_check.path"], encoding="utf-8")
+            paths_to_check = f.read().split("\n")
+            f.close()
+            return paths_to_check
+        except FileNotFoundError:
+            f = open(self.settings["to_check.path"], "w", encoding="utf-8")
+            f.write("database.json\nINSTRUCTION.txt\nREADME.md")
+            f.close()
+            return self.get_paths_to_check()
 
 if __name__ == '__main__':
     main = DailyModifiedChecker()

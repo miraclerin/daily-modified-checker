@@ -24,4 +24,9 @@ checker = DailyModifiedChecker()
 
 while True:
     checker.run()
-    sleep(checker.settings["process.update.time"])
+    try:
+        sleep(checker.settings["process.update.time"])
+    except KeyError:
+        checker.settings["process.update.time"] = 600
+        checker.write_settings()
+        sleep(checker.settings["process.update.time"])
