@@ -64,7 +64,9 @@ class Visualizer():
 
         while True:
             try:
-                the_year = int(input(self.locale_other["prompt"]))
+                the_year = input(self.locale_other["prompt"])
+                clear()
+                the_year = int(the_year)
 
                 if the_year < 1000 or the_year >= 9999:
                     print(f"\n{Fore.RED}[ERROR] {self.locale_errors["year.range"]}{Style.RESET_ALL}\n")
@@ -191,12 +193,15 @@ class Visualizer():
 
 
 if __name__ == '__main__':
+    def clear():
+        os.system("cls" if os.name == "nt" else "clear")
+        print("Daily Modified Checker Visualizer  Copyright (C) 2026  miraclerin")
 
-    print("Daily Modified Checker Visualizer  Copyright (C) 2026  miraclerin")
     if os.name == "nt":
         just_fix_windows_console()
     try:
         visualizer = Visualizer()
+        clear()
         visualizer.run()
     except JSONDecodeError:
         print(f"\n{Fore.RED}[ERROR] {visualizer.locale_errors["file.read"]}{Style.RESET_ALL}\n")
